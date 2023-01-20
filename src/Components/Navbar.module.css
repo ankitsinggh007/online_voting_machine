@@ -1,0 +1,29 @@
+.navbrand {
+    position: relative;
+}
+
+.logoName {
+    color: white;
+    display: inline;
+    position: absolute;
+    bottom: 0px;
+}
+
+.form {
+    display: flex;
+    width: 65%;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    font-size: 1.7rem;
+    color: whitesmoke ;
+    height: 100%;
+    list-style: none;
+}
+
+.button {
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 5px;
+    color: #198754;
+    background-color: white
+}

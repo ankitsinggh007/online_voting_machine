@@ -1,0 +1,29 @@
+
+.head{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+.form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 20px;
+    font-size: 1.2rem;
+}
+.file{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.button{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-left: 47%;    
+}
+.buttoninside{
+    background-color: rgb(31, 165, 47);
+    font-size: large;
+    color: white;
+    padding: 7px;
+    letter-spacing: 1px;
+
+}

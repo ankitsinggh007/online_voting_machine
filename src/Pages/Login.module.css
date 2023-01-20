@@ -1,0 +1,51 @@
+.form{
+    display: flex;
+    font-family: sans-serif;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 90%;
+    
+}
+.form div{
+    width: 70%;
+}
+.head{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.email input{
+    border: none;
+    display: block;
+    border-bottom: 1px solid black;
+    width: 70%;
+}
+.email label{
+    margin-top: 10px;
+
+}
+.password label{
+    margin-top: 20px;
+
+}
+.password input{
+    border: none;
+    display: block;
+    border-bottom: 1px solid black;
+    width: 70%;
+}
+
+.button{
+    background-color: rgb(31, 165, 47);
+    color: white;
+    padding: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 768px){
+    .form{
+        width: auto;
+    }
+    
+}

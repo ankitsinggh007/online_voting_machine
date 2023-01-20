@@ -1,0 +1,41 @@
+.main{
+    border-radius:5px;
+    height:fit-content;
+    width:95vw;
+    margin:auto;
+    display:flex;
+    padding:40px;
+    flex-direction:row;
+    justify-content:space-evenly;
+    background-color: #85FFBD;
+    background-image:linear-gradient(45deg, #85FFBD 97%, #FFFB7D 99%);
+        
+}
+
+.crousal{
+    width:50%;
+    margin:auto;
+    align-self: center;
+}
+.box{
+    width:35%;
+        margin-right:25px;
+        height:100%;
+        margin:auto;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding:15px;
+        border-radius:10px;
+        background-color:#FFFFFF;
+}
+@media screen and (max-width: 900px) {
+.main{
+    justify-content: center;
+    
+}
+.crousal{
+    display: none;
+}
+.box{
+    width: auto;
+}
+}
