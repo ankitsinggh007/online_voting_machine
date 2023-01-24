@@ -37,6 +37,8 @@ color: grey;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     height: 60vh;
+    
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -56,8 +58,6 @@ color: grey;
     justify-content: center;
     width: 60vw;
     height: auto;
-    /* border: 1px solid black; */
-    
 }
 .Poll{
     padding-top: 35px;
@@ -101,7 +101,7 @@ color: grey;
     font-size: 1rem;
 }
 .CalculateWinner2{
-    margin-top: 50px;
+    margin-top: -20px;
 }
 @media screen and (max-width: 768px) {
     .main{
@@ -121,5 +121,6 @@ color: grey;
     .form{
         width:100%;
         margin: auto;
+        
     }
 }

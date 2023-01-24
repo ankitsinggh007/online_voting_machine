@@ -95,7 +95,7 @@ else{
                         id="Phone"
                         name="Phone"
                         placeholder="Phone"
-                        type="tel"
+                        type="number"
                         onChange={(e)=>{setAuth({...Auth,PhoneNo:e.target.value})}}
                     
                     />
@@ -200,11 +200,11 @@ else{
 
                 </FormGroup>
                 <div className={classes.button}>
-                    <Button className={classes.buttoninside} 
+                    <button className={classes.buttoninside} 
                     onClick={submitForm}
                     >
                         Submit
-                    </Button>
+                    </button>
                 </div>
             </Form>
             <p style={{color:"blue",cursor:"pointer"}} onClick={toogle2}>Already an user? Sign In</p>

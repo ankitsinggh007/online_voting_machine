@@ -23,10 +23,10 @@ function Footer() {
 
       <div className="footer-icons">
 
-        <a href="#"><i className="fa fa-facebook"></i></a>
-        <a href="#"><i className="fa fa-twitter"></i></a>
-        <a href="#"><i className="fa fa-linkedin"></i></a>
-        <a href="#"><i className="fa fa-github"></i></a>
+        <a href="#"><i className="fa fa-facebook">V</i></a>
+        <a href="#"><i className="fa fa-twitter">O</i></a>
+        <a href="#"><i className="fa fa-linkedin">T</i></a>
+        <a href="#"><i className="fa fa-github">E</i></a>
 
       </div>
 
@@ -34,14 +34,16 @@ function Footer() {
 
     <div className="footer-right">
 
-      <p>Contact Us</p>
 
-      <form action="#" method="post">
+      <form action="#" method="post" >
+      <div style={{textAlign:"center",color:"white",marginBottom:"15px"}}>Contact Us</div>
 
         <input type="text" name="email" placeholder="Email"/>
         <textarea name="message" placeholder="Message"></textarea>
-        <button>Send</button>
+<div style={{display:"flex",justifyContent:"center"}}>
+<button style={{marginLeft:"25px"}}>Send</button>
 
+</div>
       </form>
 
     </div>

@@ -186,27 +186,38 @@ function Home() {
     
   }
   const CalculateWinner=()=>{
+    console.log(wi);
     let temp=wi[0];
     console.log(wi)
-    if(!(wi[0].Vote==0&&wi[1].Vote==0&&wi[2].Vote==0&&wi[3]==0)){
-
-    for(let i=1;i<wi.length;i++){
-      if(temp.Vote>wi[i].Vote){
-        continue;
-      }
-      else{
-        temp=wi[i]
-      }
-    } 
-  }
-  else{
+    if((wi[0].Vote==0&&wi[1].Vote==0&&wi[2].Vote==0&&wi[3].Vote==0)){
       temp={
         name:"___"
-      }    
+      }  
+   
+  }
+  else{
+       if((wi[0].Vote==wi[1].Vote||wi[0].Vote==wi[2].Vote||wi[0].Vote==wi[3].Vote)||(wi[1].Vote==wi[0].Vote||wi[1].Vote==wi[2].Vote||wi[1].Vote==wi[3].Vote)||(wi[2].Vote==wi[0].Vote||wi[1].Vote==wi[2].Vote||wi[2].Vote==wi[3].Vote)||(wi[3].Vote==wi[0].Vote||wi[3].Vote==wi[2].Vote||wi[1].Vote==wi[3].Vote)){
+
+        temp={
+          name:"no one"
+        }
+       }
+       else{
+        for(let i=1;i<wi.length;i++){
+          if(temp.Vote>wi[i].Vote){
+            continue;
+          }
+          else{
+            temp=wi[i]
+          }
+        } 
+        
+       }
   }
   setWinner(temp)   
 
   }
+ 
   console.log(Auth.Gender)
   let p;
   if(Auth.Gender==="Male"){
@@ -223,7 +234,7 @@ function Home() {
           <img src={p} height="100px" width="100px" />
         </div>
         <div>
-          <span className={classes.attribute}>Name</span>:<span className={classes.Value}>{Auth.Firstname}</span>
+          <span className={classes.attribute}>Full Name</span>:<span className={classes.Value}>{Auth.Firstname}</span>
         </div>
         <div>
           <span className={classes.attribute}>Age</span>:<span className={classes.Value}>{Auth.Age}</span>
@@ -249,7 +260,7 @@ function Home() {
       <div className={classes.Contest}>
         {
           !IsLive && Auth.Role === "Admin" && <form onSubmit={Submit} className={classes.form}>
-            <div className={classes.heading}>Form</div>
+            <div className={classes.heading}>Create Contest</div>
 
             <FormControl sx={{ m: 1 }}>
               <InputLabel htmlFor="outlined-adornment-amount" required>Name</InputLabel>
@@ -294,7 +305,7 @@ function Home() {
             <div style={{ alignSelf: "center" }}>
               <Button variant="contained" type="submit" disabled={Enabled} style={{ backgroundColor: "#96E080" }}>Create</Button>
             </div>
-            <div className={classes.note}>* the contest should having minimum 2 candidate</div>
+            <div className={classes.note}>* All Field should be Filled</div>
           </form>
         }
         {
