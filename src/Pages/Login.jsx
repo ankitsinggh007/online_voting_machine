@@ -16,6 +16,9 @@ function Login() {
     const emailRegex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
     if(Auth.email===""){
         setMessage("email can't be null");
+        setTimeout(() => {
+          setMessage("")
+        }, 2000);
     }
     else{
 
@@ -27,10 +30,16 @@ function Login() {
         }
         else {
             setMessage("Password can't be null");
+            setTimeout(() => {
+              setMessage("")
+            }, 2000);
         }
     }
     else {
-        setMessage("email is wrong")
+        setMessage("email is wrong");
+        setTimeout(() => {
+          setMessage("")
+        }, 2000);
     }
 };
 }
@@ -46,11 +55,11 @@ const toggle=()=>{
 
               <div className={classes.email}>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" onChange={(e)=>setAuth({...Auth,email:e.target.value})} />
+                <input type="email" id="email" required onChange={(e)=>setAuth({...Auth,email:e.target.value})} />
               </div>
               <div className={classes.password}>
               <label htmlFor="password">Password</label>
-                <input type="password" id="password" onChange={(e)=>setAuth({...Auth,password:e.target.value})}/>
+                <input type="password" id="password" required onChange={(e)=>setAuth({...Auth,password:e.target.value})}/>
               </div>
               <div className={classes.attribute}>
                 <input type="checkbox"/>

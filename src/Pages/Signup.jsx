@@ -15,6 +15,9 @@ function Signup() {
         const emailRegex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
 if(Auth.PhoneNo===""){
     setMessage("Phone no. can't be null");
+    setTimeout(() => {
+        setMessage("")
+      }, 2000);
     
 }
 else{
@@ -22,18 +25,30 @@ else{
             if(emailRegex.test(Auth.email)){
               if(Auth.password===""&&Auth.Re_entered_password===""){
                 setMessage("Password can't be null");
+                setTimeout(() => {
+                    setMessage("")
+                  }, 2000);
               }
               else if(Auth.password===Auth.Re_entered_password){
                     if(Auth.Gender===""){
                         setMessage("Select Gender");
+                        setTimeout(() => {
+                            setMessage("")
+                          }, 2000);
                     }
                     else{
                         if(Auth.Role===""){
                             setMessage("Select Role");
+                            setTimeout(() => {
+                                setMessage("")
+                              }, 2000);
                         }
                         else{
                 if(Auth.Age===""){
                     setMessage("Provide Age");
+                    setTimeout(() => {
+                        setMessage("")
+                      }, 2000);
 
                 }
                 else{
@@ -45,17 +60,25 @@ else{
               }
               else if(Auth.password!==Auth.Re_entered_password){
                 setMessage("Password is not matched")
+                setTimeout(() => {
+                    setMessage("")
+                  }, 2000);
               }
               
             }
             else{
               setMessage("incorret email");
+              setTimeout(() => {
+                setMessage("")
+              }, 2000);
             }
           
         }
         else{
           setMessage("first name can't be null*");
-          
+          setTimeout(() => {
+            setMessage("")
+          }, 2000);
         }
     
     
@@ -81,8 +104,12 @@ else{
                         id="Name"
                         name="Name"
                         placeholder="Name"
+                        required
                         type="text"
-                        onChange={(e)=>{setAuth({...Auth,Firstname:e.target.value})}}
+                        onChange={(e)=>{
+          setMessage("");
+                            
+                            setAuth({...Auth,Firstname:e.target.value})}}
                     />
                 </FormGroup>
 
@@ -96,6 +123,7 @@ else{
                         name="Phone"
                         placeholder="Phone"
                         type="number"
+                        pattern="[0-9]{10}"
                         onChange={(e)=>{setAuth({...Auth,PhoneNo:e.target.value})}}
                     
                     />
@@ -110,6 +138,7 @@ else{
                         name="email"
                         placeholder="with a placeholder"
                         type="email"
+                        required
                         onChange={(e)=>setAuth({...Auth,email:e.target.value})}
                     />
                 </FormGroup>
@@ -145,6 +174,7 @@ else{
                         id="exampleSelect"
                         name="select"
                         type="select"
+                        required
 
                         onChange={(e)=>{setAuth({...Auth,Role:e.target.value})}}
                    >
@@ -169,6 +199,7 @@ else{
                         id="exampleSelect1"
                         name="select"
                         type="select"
+                        required
                         onChange={(e)=>setAuth({...Auth,Gender:e.target.value})}
 
                            >
@@ -194,6 +225,7 @@ else{
                         id="exampleSelect2"
                         name="select"
                         type="number"
+                        required
                         onChange={(e)=>setAuth({...Auth,Age:e.target.value})}
 />
 

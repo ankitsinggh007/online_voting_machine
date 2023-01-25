@@ -185,39 +185,28 @@ function Home() {
    
     
   }
-  const CalculateWinner=()=>{
+ console.log(wi,"wi")
+  const CalculateWinner=()=> {
+    if(wi.length>0){
+
+    wi.sort((a, b) => (a.Vote > b.Vote) ? 1 : -1);
     console.log(wi);
-    let temp=wi[0];
-    console.log(wi)
-    if((wi[0].Vote==0&&wi[1].Vote==0&&wi[2].Vote==0&&wi[3].Vote==0)){
-      temp={
-        name:"___"
-      }  
-   
+    if(wi[wi.length-1].Vote===0){
+        setWinner("no one")
+    }
+    else if(wi[wi.length-1].Vote!==0 &&wi[wi.length-1].Vote===wi[wi.length-2].Vote){
+      setWinner("tie")
+
+    }
+    else{
+      const name=wi[wi.length-1];
+      setWinner(name.name)
+    }
   }
   else{
-       if((wi[0].Vote==wi[1].Vote||wi[0].Vote==wi[2].Vote||wi[0].Vote==wi[3].Vote)||(wi[1].Vote==wi[0].Vote||wi[1].Vote==wi[2].Vote||wi[1].Vote==wi[3].Vote)||(wi[2].Vote==wi[0].Vote||wi[1].Vote==wi[2].Vote||wi[2].Vote==wi[3].Vote)||(wi[3].Vote==wi[0].Vote||wi[3].Vote==wi[2].Vote||wi[1].Vote==wi[3].Vote)){
-
-        temp={
-          name:"no one"
-        }
-       }
-       else{
-        for(let i=1;i<wi.length;i++){
-          if(temp.Vote>wi[i].Vote){
-            continue;
-          }
-          else{
-            temp=wi[i]
-          }
-        } 
-        
-       }
+    setWinner("no one")
   }
-  setWinner(temp)   
-
-  }
- 
+}
   console.log(Auth.Gender)
   let p;
   if(Auth.Gender==="Male"){
@@ -353,7 +342,7 @@ function Home() {
               Auth.Role === "Admin" &&
             <>
               <Button onClick={CalculateWinner} className={classes.CalculateWinner2} color="success" variant="contained">calculate Result</Button>
-              <h1 className={classes.CalculateWinner2}  >{Winner.name}</h1>
+              <h1 className={classes.CalculateWinner2}  >{Winner}</h1>
 
               <Button onClick={DeleteContest} className={classes.create} color="success" variant="contained">Complete Current Poll</Button>
               

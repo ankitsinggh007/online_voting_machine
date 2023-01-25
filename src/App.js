@@ -110,7 +110,8 @@ Votes: []
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // setMessage(error)
+        let mes=error.message.split("/")[1];
+        alert(`${mes}`)
         console.log("i am in error")
       });
   }
