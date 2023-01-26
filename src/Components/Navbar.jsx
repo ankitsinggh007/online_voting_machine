@@ -15,8 +15,9 @@ import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import userData from './Store';
 
 import Logo from "../Media/voteLogo.png"
+import Swal from 'sweetalert2';
 // import Classes from "./Navbar.module.css"
-const pages = ["How Do We Work?",'Contact' ];
+const pages = ['Contact' ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function NavbarComponenet(args) {
    const {Auth,setAuth,setMessage} = useContext(userData)
@@ -57,6 +58,17 @@ function NavbarComponenet(args) {
       // setAuth({...Auth,showLogin:false});
     }
     
+  }
+  const OpenModal=()=>{
+    Swal.fire({
+      title: `Contact Email:naazfalak213@gmail.com  phone no.:8904422526`,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
   }
   return (
      <AppBar position="static" style={{backgroundImage: "linear-gradient( 117deg,  rgba(123,216,96,1) 39.2%, rgba(255,255,255,1) 156.2% )"}}>
@@ -112,7 +124,7 @@ function NavbarComponenet(args) {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={OpenModal}>
                   <Typography >{page}</Typography>
                 </MenuItem>
               ))}
@@ -142,7 +154,7 @@ function NavbarComponenet(args) {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={OpenModal}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}

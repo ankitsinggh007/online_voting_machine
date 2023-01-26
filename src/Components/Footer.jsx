@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Footer.css"
 import logo from "../Media/voteLogo.png"
+import Swal from 'sweetalert2'
 function Footer() {
+  const [Feed, setFeed] = useState({
+    email:"",
+    mes:"",
+  })
+  const Feedback =(e)=>{
+    e.preventDefault();
+    console.log("hi")
+   if(Feed.email &&Feed.mes){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    
+   }
+  }
   return (
     <div style={{border:"1px solid black"}}><footer className="footer-distributed">
 
@@ -38,10 +57,10 @@ function Footer() {
       <form action="#" method="post" >
       <div style={{textAlign:"center",color:"white",marginBottom:"15px"}}>Contact Us</div>
 
-        <input type="text" name="email" placeholder="Email"/>
-        <textarea name="message" placeholder="Message"></textarea>
+        <input type="text" name="email"onChange={(e)=>setFeed({...Feed,email:e.target.value})} required placeholder="Email"/>
+        <textarea name="message" required onChange={(e)=>setFeed({...Feed,mes:e.target.value})} placeholder="Message"></textarea>
 <div style={{display:"flex",justifyContent:"center"}}>
-<button style={{marginLeft:"25px"}}>Send</button>
+<button onClick={Feedback} style={{marginLeft:"25px"}}>Send</button>
 
 </div>
       </form>
